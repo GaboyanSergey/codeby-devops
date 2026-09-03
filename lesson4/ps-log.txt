@@ -1,0 +1,28 @@
+Script started on 2026-09-04 07:18:48+12:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+*       Добро пожаловать на DevOps-курс!         *
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ ps aux
+[?2004lUSER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   1052   592 ?        Sl   06:19   0:00 /init
+root       587  0.0  0.0   1052   168 ?        Ss   07:11   0:00 /init
+root       588  0.0  0.0   1052   168 ?        S    07:11   0:00 /init
+user       589  0.0  0.1   6256  5536 pts/0    Ss   07:11   0:00 -bash
+user       713  0.0  0.0   3232  1320 pts/0    S+   07:18   0:00 script /home/user/codeby-devops/lesson4/ps-log.txt
+user       714  0.0  0.1   6208  5336 pts/1    Ss   07:18   0:00 bash -i
+user       722  100  0.1   7152  4048 pts/1    R+   07:19   0:00 ps aux
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ ps aux | grep user
+[?2004l[01;31m[Kuser[m[K       589  0.0  0.1   6256  5536 pts/0    Ss   07:11   0:00 -bash
+[01;31m[Kuser[m[K       713  0.0  0.0   3232  1320 pts/0    S+   07:18   0:00 script /home/[01;31m[Kuser[m[K/codeby-devops/lesson4/ps-log.txt
+[01;31m[Kuser[m[K       714  0.0  0.1   6208  5336 pts/1    Ss   07:18   0:00 bash -i
+[01;31m[Kuser[m[K       723  0.0  0.1   7152  4188 pts/1    R+   07:20   0:00 ps aux
+[01;31m[Kuser[m[K       724  0.0  0.0   4120  2180 pts/1    S+   07:20   0:00 grep --color=auto [01;31m[Kuser[m[K
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ top -b -n 1 > /dev/null &
+[?2004l[1] 725
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ ps aux | grep top
+[?2004luser       727  0.0  0.0   4120  2176 pts/1    S+   07:21   0:00 grep --color=auto [01;31m[Ktop[m[K
+[1]+  Done                       top -b -n 1 > /dev/null
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ kill PID
+[?2004lbash: kill: `PID': not a pid or valid job spec
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-04 07:24:01+12:00 [COMMAND_EXIT_CODE="1"]

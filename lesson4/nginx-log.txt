@@ -1,0 +1,68 @@
+Script started on 2026-09-04 07:36:52+12:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+*       Добро пожаловать на DevOps-курс!         *
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ nginx -v
+[?2004lnginx version: nginx/1.28.3 (Ubuntu)
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ sudo nginx -s stop
+[?2004l[sudo: authenticate] Password: ***   
+2026/09/04 07:37:16 [notice] 1961#1961: signal process started
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ sudo nginx
+[?2004l[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ curl http://localhost
+[?2004l<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ cat /lib/systemd/system/nginx.service
+[?2004l# Stop dance for nginx
+# =======================
+#
+# ExecStop sends SIGQUIT (graceful stop) to the nginx process.
+# If, after 5s (--retry QUIT/5) nginx is still running, systemd takes control
+# and sends SIGTERM (fast shutdown) to the main process.
+# After another 5s (TimeoutStopSec=5), and if nginx is alive, systemd sends
+# SIGKILL to all the remaining processes in the process group (KillMode=mixed).
+#
+# nginx signals reference doc:
+# http://nginx.org/en/docs/control.html
+#
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+ConditionFileIsExecutable=/usr/sbin/nginx
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-04 07:38:03+12:00 [COMMAND_EXIT_CODE="0"]

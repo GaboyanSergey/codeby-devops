@@ -1,0 +1,41 @@
+Script started on 2026-09-04 07:31:23+12:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="120" LINES="30"]
+*       Добро пожаловать на DevOps-курс!         *
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ java -version
+[?2004lopenjdk version "17.0.2" 2022-01-18
+OpenJDK Runtime Environment (build 17.0.2+8-86)
+OpenJDK 64-Bit Server VM (build 17.0.2+8-86, mixed mode, sharing)
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ sudo update-alternatives --config java
+[?2004l[sudo: authenticate] Password: ***   
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                         Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/jdk-17.0.2/bin/java              2         auto mode
+  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1         manual mode
+* 2            /usr/lib/jvm/jdk-17.0.2/bin/java              2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 1
+update-alternatives: using /usr/lib/jvm/java-11-openjdk-amd64/bin/java to provide /usr/bin/java (java) in manual mode
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ java -version
+[?2004lopenjdk version "11.0.32" 2026-07-21
+OpenJDK Runtime Environment (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu)
+OpenJDK 64-Bit Server VM (build 11.0.32+9-post-1ubuntu1-26.04-Ubuntu, mixed mode, sharing)
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ sudo update-alternatives --config java
+[?2004lThere are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                         Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/jdk-17.0.2/bin/java              2         auto mode
+* 1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1         manual mode
+  2            /usr/lib/jvm/jdk-17.0.2/bin/java              2         manual mode
+
+Press <enter> to keep the current choice[*], or type selection number: 2
+update-alternatives: using /usr/lib/jvm/jdk-17.0.2/bin/java to provide /usr/bin/java (java) in manual mode
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ java -version
+[?2004lopenjdk version "17.0.2" 2022-01-18
+OpenJDK Runtime Environment (build 17.0.2+8-86)
+OpenJDK 64-Bit Server VM (build 17.0.2+8-86, mixed mode, sharing)
+[?2004h]0;user@devops-vm: ~/codeby-devops[01;32muser@devops-vm[00m:[01;34m~/codeby-devops[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-04 07:32:38+12:00 [COMMAND_EXIT_CODE="0"]
