@@ -1,0 +1,12 @@
+#!/bin/bash
+TARGET_DIR="$HOME/myfolder"
+mkdir -p "$TARGET_DIR"
+echo "Привет, мир!" > "$TARGET_DIR/file1.txt"
+date >> "$TARGET_DIR/file1.txt"
+touch "$TARGET_DIR/file2.txt"
+chmod 777 "$TARGET_DIR/file2.txt"
+head -c 20 /dev/urandom | tr -dc 'a-zA-Z0-9' > "$TARGET_DIR/file3.txt"
+echo "" >> "$TARGET_DIR/file3.txt"
+touch "$TARGET_DIR/file4.txt"
+touch "$TARGET_DIR/file5.txt"
+echo "Скрипт 1 выполнен успешно."
