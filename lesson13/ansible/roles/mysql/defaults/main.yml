@@ -1,0 +1,7 @@
+mysql_packages_debian:
+  - mysql-server
+  - python3-pymysql
+
+mysql_packages_redhat:
+  - mysql-server
+  - python3-PyMySQL

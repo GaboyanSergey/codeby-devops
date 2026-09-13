@@ -1,0 +1,5 @@
+apache_packages_debian:
+  - apache2
+
+apache_packages_redhat:
+  - httpd
