@@ -1,0 +1,26 @@
+- name: Install MySQL (Debian/Ubuntu)
+  apt:
+    name: "{{ mysql_packages_debian }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Install MySQL (RedHat/CentOS)
+  yum:
+    name: "{{ mysql_packages_redhat }}"
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure MySQL is running and enabled (Debian/Ubuntu)
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+  when: ansible_os_family == "Debian"
+
+- name: Ensure MySQL is running and enabled (RedHat/CentOS)
+  service:
+    name: mysqld
+    state: started
+    enabled: yes
+  when: ansible_os_family == "RedHat"

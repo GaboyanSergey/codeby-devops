@@ -1,0 +1,7 @@
+- name: Deploy WordPress stack
+  hosts: dev
+  become: yes
+
+  roles:
+    - mysql
+    - apache
