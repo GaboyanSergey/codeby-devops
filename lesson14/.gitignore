@@ -1,0 +1,11 @@
+config1/authorized_key.json
+config1/terraform.tfvars
+
+config1/.terraform/
+config1/.terraform.lock.hcl
+config1/terraform.tfstate
+config1/terraform.tfstate.backup
+config1/*.tfstate
+config1/*.tfstate.*
+
+*.zip
