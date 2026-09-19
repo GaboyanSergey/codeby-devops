@@ -1,0 +1,4 @@
+NAME                READY   STATUS    RESTARTS   AGE
+nginx-declarative   1/1     Running   0          10m
+nginx-imp           1/1     Running   0          12m
+nginx-impconf       1/1     Running   0          11m
