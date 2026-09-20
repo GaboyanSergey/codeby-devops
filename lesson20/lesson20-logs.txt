@@ -1,0 +1,10 @@
+NAME                         READY   STATUS    RESTARTS   AGE
+mysql-0                      1/1     Running   0          27m
+wordpress-769bd7454b-crsgn   1/1     Running   0          11m
+NAME        TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+mysql       ClusterIP   None          <none>        3306/TCP       27m
+wordpress   NodePort    10.98.56.25   <none>        80:30080/TCP   11m
+NAME    READY   AGE
+mysql   1/1     27m
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+wordpress   1/1     1            1           11m
