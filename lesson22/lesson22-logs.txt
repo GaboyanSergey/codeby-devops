@@ -1,0 +1,11 @@
+NAME            REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+wordpress-hpa   Deployment/wordpress   cpu: 1%/50%   1         5         1          11m
+NAME                         READY   STATUS    RESTARTS   AGE
+mysql-0                      1/1     Running   0          21m
+wordpress-67dfcf645b-m7slz   1/1     Running   0          8m14s
+NAME           STATUS   ROLES           AGE   VERSION
+minikube       Ready    control-plane   30m   v1.37.0
+minikube-m02   Ready    <none>          28m   v1.37.0
+NAME           CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube       112m         5%       833Mi           21%         
+minikube-m02   30m          1%       782Mi           19%         
