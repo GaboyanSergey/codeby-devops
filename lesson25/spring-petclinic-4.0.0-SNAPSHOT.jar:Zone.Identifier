@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=http://158.160.51.155:8080/job/maven-build/lastBuild/org.springframework.samples$spring-petclinic/
+HostUrl=http://158.160.51.155:8080/job/maven-build/lastBuild/org.springframework.samples$spring-petclinic/artifact/org.springframework.samples/spring-petclinic/4.0.0-SNAPSHOT/spring-petclinic-4.0.0-SNAPSHOT.jar
