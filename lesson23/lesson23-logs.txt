@@ -1,0 +1,22 @@
+NAME           STATUS   ROLES           AGE   VERSION
+minikube       Ready    control-plane   20m   v1.37.0
+minikube-m02   Ready    <none>          19m   v1.37.0
+NAME                         READY   STATUS      RESTARTS   AGE
+diagnostic-pod               0/1     Completed   0          7m35s
+mysql-0                      1/1     Running     0          19m
+wordpress-67dfcf645b-2x4kr   1/1     Running     0          19m
+NAME                   POD-SELECTOR   AGE
+mysql-network-policy   app=mysql      15m
+NAME                   POD-SELECTOR   AGE
+mysql-network-policy   app=mysql      15m
+All pods in namespace dev
+NAME                         READY   STATUS    RESTARTS   AGE
+diagnostic-pod               1/1     Running   0          2s
+mysql-0                      1/1     Running   0          11m
+wordpress-67dfcf645b-2x4kr   1/1     Running   0          11m
+
+WordPress pods only
+NAME                         READY   STATUS    RESTARTS   AGE
+wordpress-67dfcf645b-2x4kr   1/1     Running   0          11m
+
+Done
