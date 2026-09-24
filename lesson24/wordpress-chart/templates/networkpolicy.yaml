@@ -1,0 +1,23 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: mysql-network-policy
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "wordpress-chart.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      app: mysql
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: wordpress
+      ports:
+        - protocol: TCP
+          port: 3306
+{{- end }}

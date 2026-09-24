@@ -1,0 +1,24 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "wordpress-chart.labels" . | nindent 4 }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.path }}
+            pathType: {{ .Values.ingress.pathType }}
+            backend:
+              service:
+                name: wordpress
+                port:
+                  number: {{ .Values.wordpress.service.port }}
+{{- end }}

@@ -1,0 +1,19 @@
+NAME             	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                	APP VERSION
+wordpress-release	dev      	1       	2026-09-24 10:52:39.468728736 +0000 UTC	deployed	wordpress-chart-0.1.0	1.0        
+NAME                         READY   STATUS    RESTARTS   AGE
+mysql-0                      1/1     Running   0          16m
+wordpress-5fb884f7d7-kvj8q   1/1     Running   0          16m
+NAME                            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM               STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+persistentvolume/mysql-pv       1Gi        RWO            Retain           Bound    dev/wordpress-pvc   standard       <unset>                          16m
+persistentvolume/wordpress-pv   1Gi        RWO            Retain           Bound    dev/mysql-pvc       standard       <unset>                          16m
+NAME                                                REFERENCE              TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/wordpress-hpa   Deployment/wordpress   cpu: 1%/50%   1         5         1          16m
+
+NAME                                          CLASS   HOSTS             ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/wordpress-ingress   nginx   wordpress.local   192.168.49.2   80      16m
+
+NAME                                                   POD-SELECTOR   AGE
+networkpolicy.networking.k8s.io/mysql-network-policy   app=mysql      16m
+NAME           CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube       183m         9%       1178Mi          30%         
+minikube-m02   67m          3%       1024Mi          26%         

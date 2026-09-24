@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "wordpress-chart.labels" . | nindent 4 }}
+    app: mysql
+spec:
+  serviceName: mysql
+  replicas: {{ .Values.mysql.replicas }}
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: {{ .Values.mysql.image }}
+          envFrom:
+            - secretRef:
+                name: mysql-secret
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
+          resources:
+            {{- toYaml .Values.mysql.resources | nindent 12 }}
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-pvc

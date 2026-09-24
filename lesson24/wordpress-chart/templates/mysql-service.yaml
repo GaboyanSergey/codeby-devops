@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "wordpress-chart.labels" . | nindent 4 }}
+    app: mysql
+spec:
+  selector:
+    app: mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+  clusterIP: None
