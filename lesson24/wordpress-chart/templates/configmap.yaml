@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wordpress-config
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "wordpress-chart.labels" . | nindent 4 }}
+data:
+  WORDPRESS_DB_HOST: "mysql.{{ .Values.namespace }}.svc.cluster.local:3306"
+  WORDPRESS_DB_NAME: {{ .Values.mysql.secret.database | quote }}
